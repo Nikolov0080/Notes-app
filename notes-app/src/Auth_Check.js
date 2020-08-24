@@ -1,18 +1,29 @@
-import React, {  useState } from 'react';
+import React, { useState } from 'react';
 import UserContext from './context/context';
+import firebase from 'firebase';
+
+
 
 const AuthCheck = (props) => {
 
     const [user, setUser] = useState(null);
 
-    const signIn = () => {
-        setUser({
-            isLogged: true
-        })
+    firebase.auth().onAuthStateChanged(function (user) {
+        if (user) {
+            setUser(user);
+        } else {
+            setUser(null);
+        }
+    });
+
+    const signIn = (userData) => {
+        setUser(userData)
     }
 
     const signOut = () => {
-        setUser(null)
+        firebase.auth().signOut().then(resp => {
+            setUser(null);
+        })
     }
 
     return (

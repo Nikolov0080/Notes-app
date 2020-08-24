@@ -11,7 +11,6 @@ const CreateNoteForm = () => {
 
     const submitNote = (data) => {
         saveNote(data);
-        console.log(data)
     }
 
     return (

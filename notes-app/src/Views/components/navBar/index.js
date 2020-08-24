@@ -4,10 +4,9 @@ import { Link } from 'react-router-dom';
 import UserContext from '../../../context/context';
 import isUserLogged from './navItems';
 
-
 const NavBar = () => {
+
     const context = useContext(UserContext);
-    console.log(context)
 
     const navItems = isUserLogged(context.user);
 
@@ -17,7 +16,7 @@ const NavBar = () => {
                 {navItems.map((item, index) => {
                     return (
                         <Col xs lg="2" key={index}>
-                            <Link  to={item.path}>{item.name}</Link>
+                            <Link to={item.path}>{item.name}</Link>
                         </Col>
                     )
                 })}
