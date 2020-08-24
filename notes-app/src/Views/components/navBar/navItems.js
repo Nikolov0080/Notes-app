@@ -1,4 +1,3 @@
-
 const isUserLogged = (user) => {
 
     if (!user) {
@@ -32,9 +31,6 @@ const isUserLogged = (user) => {
             },
         ]
     }
-
-
-
 }
 
 export default isUserLogged;
