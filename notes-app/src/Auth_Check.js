@@ -12,9 +12,7 @@ const AuthCheck = (props) => {
     }
 
     const signOut = () => {
-        setUser({
-            isLogged: false
-        })
+        setUser(null)
     }
 
     return (

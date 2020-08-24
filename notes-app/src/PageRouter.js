@@ -10,6 +10,8 @@ const PageRouter = () => {
           <Route exact path="/" component={Pages.Home}/>
           <Route exact path="/login" component={Pages.Login}/>
           <Route exact path="/register" component={Pages.Register}/>
+          <Route exact path="/my-notes" component={Pages.MyNotes}/>
+          <Route exact path="/create-note" component={Pages.CreateNote}/>
         </Switch>
       </Router>
     </div>

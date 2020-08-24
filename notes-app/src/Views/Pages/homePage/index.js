@@ -1,15 +1,15 @@
 import React, { useContext } from 'react'
 import UserContext from '../../../context/context';
+import PageLayout from '../../utils/PageLayout/PageLayout';
+
 
 const Home = () => {
 
   const context = useContext(UserContext)
 
-  
-
-console.log(context)
-
   return (
+    <PageLayout>
+
     <div>
       <h1>Home Page</h1>
 
@@ -17,6 +17,7 @@ console.log(context)
       <button onClick={context.signOut}>Sign Out</button>
 
     </div>
+    </PageLayout>
   )
 }
 

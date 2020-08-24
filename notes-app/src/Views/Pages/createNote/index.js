@@ -1,15 +1,15 @@
 import React from 'react'
 import PageLayout from '../../utils/PageLayout/PageLayout';
 
-const Register = () => {
+const CreateNote = () => {
     return (
         <div>
             <PageLayout>
+            <h1>Create Note</h1>
 
-            <h1>Register Page</h1>
             </PageLayout>
         </div>
     )
 }
 
-export default Register
+export default CreateNote
