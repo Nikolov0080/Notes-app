@@ -4,26 +4,23 @@ import notes from '../../../Models/getNotes/getNotes';
 import UserContext from '../../../context/context';
 import { Card, Button } from 'react-bootstrap';
 import deleteNote from '../../../Models/deleteNote/deleteNote';
-import { useHistory } from 'react-router-dom';
 
 const MyNotes = () => {
 
     const context = useContext(UserContext);
-    const history = useHistory()
     const [userId, setUserId] = useState(null);
     const [notesList, setNotesList] = useState(null);
 
-    
-  function refreshPage() {
-    window.location.reload(false);
-  }
+    function refreshPage() {
+        window.location.reload(false);
+    }
 
     const killNote = (theme) => {
-      deleteNote(theme).then(()=>{
-          setTimeout(()=>{
-              refreshPage()
-          },200)
-      })
+        deleteNote(theme).then(() => {
+            setTimeout(() => {
+                refreshPage()
+            }, 200)
+        })
     }
 
     useEffect(() => {
