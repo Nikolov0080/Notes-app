@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import UserContext from './context/context';
 import firebase from 'firebase';
 
-
-
 const AuthCheck = (props) => {
 
     const [user, setUser] = useState(null);
@@ -39,4 +37,4 @@ const AuthCheck = (props) => {
     )
 }
 
-export default AuthCheck
+export default AuthCheck;
