@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useForm } from 'react-hook-form';
 import { Button } from 'react-bootstrap';
 import Input from '../../Views/components/input';
@@ -7,9 +7,14 @@ import firebaseRegister from '../../Models/authentication/register';
 const Register = () => {
 
     const { register, handleSubmit, watch, errors } = useForm();
+    const [emailInUse, setEmailInUse] = useState(null);
 
     const submitForm = (data) => {
         firebaseRegister(data.email, data.password).then(response => {
+          
+            if(response === "Email in use"){
+                setEmailInUse("kyp!")
+            }
             console.log(response.user);
         })
     }
@@ -23,6 +28,7 @@ const Register = () => {
                 {errors.rePassword && errors.rePassword.type === 'required' && <p>Repeat password is required</p>}
                 {errors.rePassword && errors.rePassword.type === 'validate' && <p>Password and Repeat password must match</p>}
                 {errors.password && errors.password.type === 'minLength' && <p>password must be 6 characters long</p>}
+                {emailInUse !== null ? <p>Email in Use sorry</p> : ''}
 
                 <Input
                     name="email"

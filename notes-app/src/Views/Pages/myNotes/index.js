@@ -63,7 +63,7 @@ const MyNotes = () => {
                         <Card key={index}>
                             <Card.Body>
                                 <Card.Title>{note.theme}</Card.Title>
-                                <Card.Text>
+                                <Card.Text style={{color:"black"}}>
                                     {note.note}
                                 </Card.Text>
                                 <Button onClick={() => killNote(note.theme)} size="sm" variant="danger">Delete note</Button>
