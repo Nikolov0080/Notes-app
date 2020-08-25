@@ -3,14 +3,17 @@ import { useForm } from 'react-hook-form';
 import Input from '../../Views/components/input/index';
 import { Button } from 'react-bootstrap';
 import firebaseLogin from "../../Models/authentication/login";
+import { useHistory } from 'react-router-dom';
 
 const LoginForm = () => {
 
     const { register, handleSubmit, errors } = useForm();
+    const history = useHistory()
 
     const submitForm = (data) => {
         firebaseLogin(data.email, data.password).then(response => {
             console.log(response)
+            history.push('/create-note');
         }).catch(e => console.log(e));
     }
 

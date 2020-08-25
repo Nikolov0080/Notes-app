@@ -4,16 +4,26 @@ import notes from '../../../Models/getNotes/getNotes';
 import UserContext from '../../../context/context';
 import { Card, Button } from 'react-bootstrap';
 import deleteNote from '../../../Models/deleteNote/deleteNote';
+import { useHistory } from 'react-router-dom';
 
 const MyNotes = () => {
 
     const context = useContext(UserContext);
-
+    const history = useHistory()
     const [userId, setUserId] = useState(null);
     const [notesList, setNotesList] = useState(null);
 
+    
+  function refreshPage() {
+    window.location.reload(false);
+  }
+
     const killNote = (theme) => {
-        deleteNote(theme)
+      deleteNote(theme).then(()=>{
+          setTimeout(()=>{
+              refreshPage()
+          },200)
+      })
     }
 
     useEffect(() => {
@@ -51,7 +61,6 @@ const MyNotes = () => {
         <div>
             <PageLayout>
                 <h1>My Notes</h1>
-
                 {notesList.map((note, index) => {
                     return (
                         <Card key={index}>
@@ -65,6 +74,8 @@ const MyNotes = () => {
                         </Card>
                     )
                 })}
+                <br />
+                <Button onClick={refreshPage}>Refresh</Button>
             </PageLayout>
         </div>
     )

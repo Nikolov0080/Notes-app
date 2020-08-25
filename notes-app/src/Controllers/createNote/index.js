@@ -5,12 +5,14 @@ import Input from '../../Views/components/input';
 import TextArea from '../../Views/components/textArea/index';
 import saveNote from '../../Models/createNote/index';
 import UserContext from '../../context/context';
+import { useHistory } from 'react-router-dom';
 
-const CreateNoteForm = () => {
+const CreateNoteForm = (props) => {
 
     const { register, handleSubmit, errors } = useForm();
     const context = useContext(UserContext);
     const [userData, setUserData] = useState(null);
+    const history = useHistory()
 
     useEffect(() => {
 
@@ -26,8 +28,8 @@ const CreateNoteForm = () => {
     const submitNote = (data) => {
 
         if (userData !== null) {
-            
-            saveNote({...data,userData});
+            saveNote({ ...data, userData });
+            history.push('/my-notes')
         }
     }
 

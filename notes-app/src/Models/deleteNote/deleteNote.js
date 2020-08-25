@@ -1,8 +1,8 @@
 import db from '../firebaseSetup/fire';
 
-const deleteNote = (theme) => {
+const deleteNote = async(theme) => {
 
-    db.collection('data').doc('notes').get().then(resp => {
+  await  db.collection('data').doc('notes').get().then(resp => {
 
         const data = resp.data().allNotes;
 
@@ -20,8 +20,10 @@ const deleteNote = (theme) => {
             allNotes
         }).then(() => {
             console.log('Note/Notes deleted')
+            return 'Note Deleted'
         }) 
     })
+
 }
 
 export default deleteNote;
