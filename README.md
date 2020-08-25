@@ -1,1 +1,1 @@
-# will be changed after
+# React application for creating notes (:
