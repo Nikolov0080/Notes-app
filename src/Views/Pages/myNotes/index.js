@@ -2,7 +2,7 @@ import React, { useContext, useState, useEffect } from 'react'
 import PageLayout from '../../utils/PageLayout/PageLayout';
 import notes from '../../../Models/getNotes/getNotes';
 import UserContext from '../../../context/context';
-import { Card, Button } from 'react-bootstrap';
+import { Card, Button ,Spinner} from 'react-bootstrap';
 import deleteNote from '../../../Models/deleteNote/deleteNote';
 
 const MyNotes = () => {
@@ -48,7 +48,7 @@ const MyNotes = () => {
             <div>
                 <PageLayout>
                     <h1>My Notes</h1>
-                    <h3>Loading</h3>
+                    <Spinner animation="border" variant="primary" />
                 </PageLayout>
             </div>
         )

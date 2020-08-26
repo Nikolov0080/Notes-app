@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import UserContext from '../../../context/context';
 import PageLayout from '../../utils/PageLayout/PageLayout';
 import { Link } from 'react-router-dom';
-import { Button } from 'react-bootstrap';
+import { Button, Col, Row } from 'react-bootstrap';
 
 
 const Home = () => {
@@ -24,28 +24,26 @@ const Home = () => {
 
       <PageLayout>
 
-        <div>
+        <div className="text-center">
           <h1>Home Page</h1>
-          <br />
-          <br />
 
-          <Button size="lg">
-            <Link style={{color:"white"}} to="/my-notes">My notes</Link>
-          </Button>
 
-          <br />
-          <br />
-          <br />
-          <br />
+          <Row className="justify-content-md-center">
+            <Col xs lg="2">
+              <Button style={{ width: "100%", marginTop:'2em' }} size="lg">
+                <Link style={{ color: "white" }} to="/my-notes">My notes</Link>
+              </Button>
+            </Col>
+            <Col md="auto">
+              <Button style={{ width: "100%", marginTop:'2em' }} size="lg">
+                <Link style={{ color: "white" }} to="/create-note">Create Note</Link>
+              </Button>
+            </Col>
+            <Col xs lg="2">
+              <Button size="lg" style={{ width: "100%", marginTop:'2em' }} onClick={context.signOut}>Sign Out</Button>
+            </Col>
+          </Row>
 
-          <Button size="lg">
-            <Link style={{color:"white"}} to="/create-note">Create Note</Link>
-          </Button>
-          <br />
-          <br />
-          <br />
-          <br />
-          <Button onClick={context.signOut}>Sign Out</Button>
         </div>
       </PageLayout>
     )
@@ -54,24 +52,20 @@ const Home = () => {
     return (
       <PageLayout>
 
-        <div>
+        <div >
           <h1>Home Page</h1>
-          <br />
-          <br />
-
-          <Button size="lg">
-            <Link style={{color:"white"}} to="/login">Login</Link>
-          </Button>
-
-          <br />
-          <br />
-          <br />
-          <br />
-
-          <Button size="lg">
-            <Link style={{color:"white"}} to="/register">Register</Link>
-          </Button>
-
+          <Col style={{ marginTop: "20%" }} className="justify-content-md-center" >
+            <Row >
+              <Button style={{ width: "100%", marginTop:'2em' }} size="lg">
+                <Link style={{ color: "white" }} to="/login">Login</Link>
+              </Button>
+            </Row>
+            <Row>
+              <Button style={{ width: "100%", marginTop:'2em' }} size="lg">
+                <Link style={{ color: "white" }} to="/register">Register</Link>
+              </Button>
+            </Row>
+          </Col>
         </div>
       </PageLayout>
     )

@@ -1,5 +1,5 @@
 {
-  "proxy": "http://localhost:5000/",
+  "proxy": "http://localhost:3000/",
   "name": "notes-app",
   "version": "0.1.0",
   "private": true,
@@ -21,7 +21,7 @@
     "react-scripts": "3.4.3"
   },
   "scripts": {
-    "start": "node server.js",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

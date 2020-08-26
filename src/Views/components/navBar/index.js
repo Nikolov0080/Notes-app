@@ -11,12 +11,12 @@ const NavBar = () => {
     const navItems = isUserLogged(context.user);
 
     return (
-        <div className="container text-center mt-3 mb-3">
-            <Row className="justify-content-md-center">
+        <div  className="container text-center mt-3 mb-3">
+            <Row  className="justify-content-md-center">
                 {navItems.map((item, index) => {
                     return (
-                        <Col xs lg="2" key={index}>
-                            <Link to={item.path}>{item.name}</Link>
+                        <Col  xs lg="2" key={index}>
+                            <Link style={{fontSize:'20px'}} to={item.path}>{item.name}</Link>
                         </Col>
                     )
                 })}

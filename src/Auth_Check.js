@@ -32,7 +32,7 @@ const AuthCheck = (props) => {
         return (
             <div className="text-center" style={{ marginTop: '45%' }}>
 
-                <Spinner  size="lg" animation="border" role="status">
+                <Spinner  variant="primary" size="lg" animation="border" role="status">
                     <span className="sr-only">sa</span>
 
                 </Spinner>
