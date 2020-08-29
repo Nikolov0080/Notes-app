@@ -13,7 +13,6 @@ const PageRouter = () => {
           <ProtectedRoute exact path="/login" component={Pages.Login} />
           <ProtectedRoute exact path="/register" component={Pages.Register} />
           <ProtectedRouteGuest exact path="/my-notes" component={Pages.MyNotes} />
-          <ProtectedRouteGuest exact path="/create-note" component={Pages.CreateNote} />
           <Route exact path="*" component={Pages.ErrorPage} />
         </Switch>
       </Router>

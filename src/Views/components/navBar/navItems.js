@@ -25,10 +25,6 @@ const isUserLogged = (user) => {
                 path: "/my-notes",
                 name: 'My Notes'
             },
-            {
-                path: "/create-note",
-                name: 'Create new note'
-            },
         ]
     }
 }

@@ -10,13 +10,24 @@ const Home = () => {
   const context = useContext(UserContext)
 
   const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
 
     setUser(context.user)
+   
+      setLoading(false);
+  
+  }, [context, user])
 
-  }, [context])
 
+  if(loading){
+    return(
+      <PageLayout>
+        loading...
+      </PageLayout>
+    )
+  }
 
   if (user) {
 
@@ -30,17 +41,17 @@ const Home = () => {
 
           <Row className="justify-content-md-center">
             <Col xs lg="2">
-              <Button style={{ width: "100%", marginTop:'2em' }} size="lg">
+              <Button style={{ width: "100%", marginTop: '2em' }} size="lg">
                 <Link style={{ color: "white" }} to="/my-notes">My notes</Link>
               </Button>
             </Col>
             <Col md="auto">
-              <Button style={{ width: "100%", marginTop:'2em' }} size="lg">
+              <Button style={{ width: "100%", marginTop: '2em' }} size="lg">
                 <Link style={{ color: "white" }} to="/create-note">Create Note</Link>
               </Button>
             </Col>
             <Col xs lg="2">
-              <Button size="lg" style={{ width: "100%", marginTop:'2em' }} onClick={context.signOut}>Sign Out</Button>
+              <Button size="lg" style={{ width: "100%", marginTop: '2em' }} onClick={context.signOut}>Sign Out</Button>
             </Col>
           </Row>
 
@@ -56,12 +67,12 @@ const Home = () => {
           <h1>Home Page</h1>
           <Col style={{ marginTop: "20%" }} className="justify-content-md-center" >
             <Row >
-              <Button style={{ width: "100%", marginTop:'2em' }} size="lg">
+              <Button style={{ width: "100%", marginTop: '2em' }} size="lg">
                 <Link style={{ color: "white" }} to="/login">Login</Link>
               </Button>
             </Row>
             <Row>
-              <Button style={{ width: "100%", marginTop:'2em' }} size="lg">
+              <Button style={{ width: "100%", marginTop: '2em' }} size="lg">
                 <Link style={{ color: "white" }} to="/register">Register</Link>
               </Button>
             </Row>

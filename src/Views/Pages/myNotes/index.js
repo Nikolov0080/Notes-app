@@ -4,6 +4,7 @@ import notes from '../../../Models/getNotes/getNotes';
 import UserContext from '../../../context/context';
 import { Card, Button ,Spinner} from 'react-bootstrap';
 import deleteNote from '../../../Models/deleteNote/deleteNote';
+import CreateNoteForm from '../../../Controllers/createNote/index';
 
 const MyNotes = () => {
 
@@ -57,9 +58,15 @@ const MyNotes = () => {
     return (
         <div>
             <PageLayout>
-                <h1>My Notes</h1>
+            
+                <h2>Create note</h2>
+                 <CreateNoteForm /> 
+                 <br/>
+                 
+                 <h1>My Notes</h1>
                 {notesList.map((note, index) => {
                     return (
+                       
                         <Card key={index}>
                             <Card.Body>
                                 <Card.Title>{note.theme}</Card.Title>
